@@ -10,6 +10,7 @@ import IpsumCard from '../../components/IpsumCard/IpsumCard';
 import { useRouter } from 'next/navigation'
 import CommentCard from '@/components/CommentCard/CommentCard';
 import UniversityProgramCard from '@/components/UniversityProgramCard/UniversityProgramCard';
+import UniversityCard from '@/components/UniversityCard/UniversityCard';
 
 const comments = [
   {
