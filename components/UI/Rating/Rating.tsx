@@ -1,37 +1,42 @@
 import React from 'react'
 import { useMemo } from 'react'
-import { ConsultantRatingProps } from './types'
+import { RatingProps } from './types'
 import { createRatingArray } from './utils'
 import Icon from '../Icon/Icon'
 import FlexBox from '@/components/FlexBox/FlexBox'
 import { commonColors } from '@nextui-org/theme'
+import Link from 'next/link'
 
-const ConsultantRating = ({
+const Rating = ({
   rating,
   commentsCount,
-}: ConsultantRatingProps) => {
+  showRating,
+  href,
+}: RatingProps) => {
   const ratingArray = useMemo(() => createRatingArray(rating), [rating])
   return (
-    <FlexBox className='items-center'>
+    <FlexBox className='items-center gap-x-2'>
+      <FlexBox>
+        {
+          (ratingArray) && ratingArray.map((element, i) => (
+            <Icon
+              key={i}
+              color={commonColors.yellow[400]}
+              name={(element == 1) ? 'star' : ((element == 0.5) ? 'starHalf' : 'starOutline')}
+              w={16}
+              h={16}
+            />
+          ))
+        }
+      </FlexBox>
       {
-        (ratingArray) && ratingArray.map((element, i) => (
-          <Icon
-            key={i}
-            color={commonColors.yellow[400]}
-            name={(element == 1) ? 'star' : ((element == 0.5) ? 'starHalf' : 'starOutline')}
-            w={24}
-            h={24}
-          />
-        ))
+        showRating && <p className='font-bold'>{rating}</p>
       }
-      {/* {commentsCount && (
-        <Text
-          color='$textGray'
-          size='$xs'
-        >{`(${commentsCount})`}</Text>
-      )} */}
+      {commentsCount && (
+        <Link href={`${href}`}>{`Read ${commentsCount} reviews`}</Link>
+      )}
     </FlexBox>
   )
 }
 
-export default ConsultantRating
+export default Rating

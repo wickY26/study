@@ -10,9 +10,9 @@ const Icon = ({
   h = 24,
 }: IconProps) => (
   <svg
-    viewBox={`0 0 ${w} ${h}`}
+    viewBox={`0 0 24 24`}
     fill={color}
-    className={`h-8 w-8 ${style ? style : ''}`}
+    className={`h-${h / 4} w-${w / 4} ${style ? style : ''}`}
   >
     <path d={iconPaths[name]}></path>
   </svg>

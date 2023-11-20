@@ -1,7 +1,7 @@
 import { Card, CardBody, CardFooter, CardHeader, Image } from "@nextui-org/react"
 import FlexBox from "../FlexBox/FlexBox"
 import { CommentCardProps } from "./types"
-import ConsultantRating from "../UI/Rating/Rating"
+import Rating from "../UI/Rating/Rating"
 
 
 
@@ -33,7 +33,7 @@ const CommentCard = ({
         <p>{comment}</p>
       </CardBody>
       <CardFooter className='flex flex-col'>
-        <ConsultantRating rating={rating} />
+        <Rating rating={rating} />
       </CardFooter>
     </Card>
   )
