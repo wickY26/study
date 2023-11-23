@@ -48,8 +48,13 @@ const config: Config = {
           background: '#FFFFFF',
           foreground: '#000000',
           primary: {
-            ...commonColors.cyan,
-            DEFAULT: commonColors.cyan[500],
+            ...commonColors.zinc,
+            DEFAULT: commonColors.zinc[500],
+            foreground: "#ffffff",
+          },
+          secondary: {
+            ...commonColors.yellow,
+            DEFAULT: commonColors.yellow[500],
             foreground: "#ffffff",
           },
         }
